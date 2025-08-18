@@ -1,0 +1,42 @@
+
+        
+  <div class="search-bar">
+  <input 
+    type="text" 
+    [(ngModel)]="searchTerm" 
+    placeholder="Search by name..." />
+</div>
+
+<div class="table-card">
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>User</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Country</th>
+        <th>Gender</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of filteredUsers | paginate: { itemsPerPage: 5, currentPage: page }; let i = index">
+        <td>{{ (page - 1) * 5 + i + 1 }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.phone }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.country }}</td>
+        <td>{{ user.gender }}</td>
+        <td><span class="status active">Active</span></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<pagination-controls 
+  (pageChange)="page = $event"
+  previousLabel="Prev"
+  nextLabel="Next ">
+</pagination-controls>

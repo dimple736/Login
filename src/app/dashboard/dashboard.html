@@ -1,0 +1,47 @@
+<div class="main-wrapper">
+  <header class="header">
+    <div class="left-section">
+    <img src="spin.png" alt="Spin Logo" class="logo" />
+    <span class="brand-text">Spin</span></div>
+  
+    <div class="right-section"></div>
+    <div class="user-info">
+    <div class="profile-icon">DS</div>
+    <div class="user-name">Dimple Saini</div>
+  </div>
+  </header>
+
+
+  <div class="dashboard-container">
+    <div class="sidebar">
+      <div class="top-buttons">
+        <button 
+          class="sidebar-btn" 
+          routerLink="userlist"
+          routerLinkActive="active">
+          User List
+        </button>
+
+        <button 
+          class="sidebar-btn" 
+          routerLink="createuser"
+          routerLinkActive="active">
+          Create User
+        </button>
+        <button 
+  class="sidebar-btn" 
+  routerLink="create-coupon"
+  routerLinkActive="active">
+Create- Coupon
+</button>
+      </div>
+
+      <div class="bottom-logout">
+        <button class=" logout-btn" (click)="logout()">Logout</button>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>

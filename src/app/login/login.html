@@ -1,0 +1,51 @@
+<div class="login-container">
+  <div class="left-section">
+    <img src="charger.jpg" alt="Charging Station" />
+  </div>
+
+  <div class="right-section">
+    <div class="logo">
+      <img src="spin.png" alt="Spin Logo" />
+      <h1>Spin</h1>
+    </div>
+
+   
+    <div *ngIf="!showOtpScreen">
+      <label>Mobile Number</label>
+      <div class="input-group">
+        <select [(ngModel)]="countryCode">
+          <option value="+91">+91</option>
+          <option value="+1">+1</option>
+        </select>
+        <input type="text" [(ngModel)]="mobileNumber" placeholder="XXXX-XXX-XXX" maxlength="10" (input)="allowOnlyDigits($event)"/>
+      </div>
+      <button class="login-button" (click)="sendOtp()">Send OTP</button>
+
+    </div>
+
+    
+    <div *ngIf="showOtpScreen">
+      <div class="otp-section">
+      <h3 class="otp-heading">Verify OTP</h3>
+
+      
+      <div class="otp-box">
+        <input *ngFor="let i of [0,1,2,3,4,5]"
+
+               type="text"
+               maxlength="1"
+               inputmode="numeric"
+               [(ngModel)]="otp[i]"
+               name="otp{{i}}"
+               autocomplete="one-time-code"
+               (keypress)="allowOnlyDigitsInOtp($event)"
+               (keyup)="moveToNext($event, i)" />
+               
+      </div>
+      <button class="otp-submit-btn" (click)="verifyOtp()">Verify OTP</button>
+
+      <a (click)="goBack()" class="back-link">Back To Login</a>
+    </div>
+    </div>
+  </div>
+</div>
