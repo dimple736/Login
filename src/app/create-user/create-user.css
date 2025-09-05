@@ -1,3 +1,4 @@
+
 .form-card {
   background-color: #ffffff;
   padding: 30px;
@@ -6,10 +7,16 @@
   max-width: 500px;
   margin: 0 auto;
 }
+h2 {
+  color: burlywood; 
+  font-family: cursive;  
+}
+
+
 
 .form-card h2 {
   margin-bottom: 20px;
-  color: #333;
+  
 }
 
 .form-group {

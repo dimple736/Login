@@ -1,0 +1,34 @@
+
+<div class="page">
+    
+  <header class="topbar">
+    <h1>🎬 My Cartoon Videos</h1>
+  </header>
+
+  <main class="content">
+    <div class="table">
+      <div class="row header">
+        <div class="cell center">#</div>
+        <div class="cell">URL</div>
+        <div class="cell">About</div>
+        <div class="cell center">Play</div>
+      </div>
+
+      <div class="row" *ngFor="let v of videos;let i=index">
+        <div class="cell center">{{ i + 1 }}</div>
+        <div class="cell url">
+          <a [href]="v.url" target="_blank" rel="noopener noreferrer">{{ v.url }}</a>
+        </div>
+        <div class="cell about">
+          {{ v.about }}
+        </div>
+        <div class="cell center">
+
+<div class="cell center">
+  <button class="play-btn" (click)="playVideo(v)">▶</button>
+</div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

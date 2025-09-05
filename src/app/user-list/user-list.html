@@ -1,5 +1,4 @@
 
-        
   <div class="search-bar">
   <input 
     type="text" 
@@ -18,6 +17,7 @@
         <th>Country</th>
         <th>Gender</th>
         <th>Status</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
@@ -29,14 +29,53 @@
         <td>{{ user.country }}</td>
         <td>{{ user.gender }}</td>
         <td><span class="status active">Active</span></td>
+         <td>
+          <button class="btn btn-sm " (click)="openEdit(user)">
+            ✏️ 
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>
 </div>
-
-
 <pagination-controls 
   (pageChange)="page = $event"
   previousLabel="Prev"
   nextLabel="Next ">
 </pagination-controls>
+<div *ngIf="editedUser" class="custom-modal">
+  <div class="modal-dialog">
+    <div class="modal-content animate-slide">
+      <div class="modal-header">
+        <h5>Edit User</h5>
+        <span class="close" (click)="closeEdit()">&times;</span>
+      </div>
+      <div class="modal-body">
+        <form #editForm="ngForm">
+          <label>Name:</label>
+          <input [(ngModel)]="editedUser.name" name="name" />
+
+          <label>Phone:</label>
+          <input [(ngModel)]="editedUser.phone" name="phone" />
+
+          <label>Email:</label>
+          <input [(ngModel)]="editedUser.email" name="email" />
+
+          <label>Country:</label>
+          <input [(ngModel)]="editedUser.country" name="country" />
+
+          <label>Gender:</label>
+          <input [(ngModel)]="editedUser.gender" name="gender" />
+
+          <label>Status:</label>
+          <input [(ngModel)]="editedUser.status" name="status" />
+
+          <div class="modal-footer">
+            <button type="button" (click)="saveEdit()">Save</button>
+            <button type="button" (click)="closeEdit()">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

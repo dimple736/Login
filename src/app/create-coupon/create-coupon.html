@@ -1,4 +1,4 @@
-<div class="d-flex align-items-center  bg-white">
+<div class="d-flex align-items-center bg-white">
   <button class="btn btn-link text-decoration-none text-primary me-3 p-0 fw-semibold" (click)="goBack()">
     ← Back
   </button>
@@ -17,6 +17,7 @@
 
   <form #couponForm="ngForm" (ngSubmit)="submitForm(couponForm)">
     <div class="form-grid">
+      
       <div class="form-group">
         <label>Coupon Type</label>
         <select [(ngModel)]="couponData.couponType" name="couponType" required>
@@ -28,23 +29,42 @@
 
       <div class="form-group">
         <label>Mobile Number</label>
-        <input type="text" name="mobileNumber" [(ngModel)]="couponData.mobileNumber" Maxlength="10"   placeholder="XXXX-XXX-XXX" pattern="[0-9]*"
-    (input)="allowOnlyDigits($event)">
+        <input 
+          type="text" 
+          name="mobileNumber" 
+          [(ngModel)]="couponData.mobileNumber" 
+          maxlength="10" 
+          placeholder="XXXX-XXX-XXX" 
+          pattern="[0-9]*"
+          (input)="allowOnlyDigits($event)">
       </div>
 
+      
       <div class="form-group">
         <label>User Name</label>
-        <input type="text" name="userName" [(ngModel)]="couponData.userName" placeholder="Enter Name" required>
+        <input 
+          type="text" 
+          name="userName" 
+          [(ngModel)]="couponData.userName" 
+          placeholder="Enter Name" 
+          required>
       </div>
 
+      
       <div class="form-group">
         <label>Email ID</label>
-        <input type="email" name="email" [(ngModel)]="couponData.email" placeholder="Type Your Email" required>
+        <input 
+          type="email" 
+          name="email" 
+          [(ngModel)]="couponData.email" 
+          placeholder="Type Your Email" 
+          required>
       </div>
+
 
       <div class="form-group">
         <label>Rating</label>
-        <select [(ngModel)]="couponData.rating" name="rating" placeholder="Select" required>
+        <select [(ngModel)]="couponData.rating" name="rating" required>
           <option value="" disabled selected hidden>Select</option>
           <option>1</option>
           <option>2</option>
@@ -54,49 +74,78 @@
         </select>
       </div>
 
+      
       <div class="form-group">
         <label>Type</label>
-        <select [(ngModel)]="couponData.type" name="type" placeholder="Type" required>
+        <select [(ngModel)]="couponData.type" name="type" required>
           <option value="" disabled selected hidden>Select</option>
           <option value="Amount based">Amount based</option>
-          <option value="Perncentage">Perncentage</option>
+          <option value="Percentage">Percentage</option>
         </select>
       </div>
 
+      
       <div class="form-group">
         <label>Coupon Title</label>
-        <input type="text" name="title" [(ngModel)]="couponData.title" placeholder="Type">
+        <input 
+          type="text" 
+          name="title" 
+          [(ngModel)]="couponData.title" 
+          placeholder="Type">
       </div>
 
       <div class="form-group">
         <label>Coupon Code</label>
-        <input type="text" name="code" [(ngModel)]="couponData.code" placeholder="Enter Coupon Code" required>
+        <input 
+          type="text" 
+          name="code" 
+          [(ngModel)]="couponData.code" 
+          placeholder="Enter Coupon Code" 
+          required>
       </div>
 
       <div class="form-group full-width">
         <label>Description</label>
-        <textarea rows="3" name="description" [(ngModel)]="couponData.description" placeholder="Type here"></textarea>
+        <textarea 
+          rows="3" 
+          name="description" 
+          [(ngModel)]="couponData.description" 
+          placeholder="Type here"></textarea>
       </div>
 
       <div class="form-group">
         <label>Start Date</label>
-        <input type="date" name="startDate" [(ngModel)]="couponData.startDate" required>
+        <input 
+          type="date" 
+          name="startDate" 
+          [(ngModel)]="couponData.startDate" 
+          required>
       </div>
 
+      
       <div class="form-group">
         <label>End Date</label>
-        <input type="date" name="endDate" [(ngModel)]="couponData.endDate" required>
+        <input 
+          type="date" 
+          name="endDate" 
+          [(ngModel)]="couponData.endDate" 
+          required>
       </div>
 
+      
       <div class="form-group switch-group">
         <label>Status</label>
         <label class="switch">
-          <input type="checkbox" [(ngModel)]="couponData.status" name="status">
+          <input 
+            type="checkbox" 
+            [(ngModel)]="couponData.status" 
+            name="status">
           <span class="slider"></span>
         </label>
       </div>
     </div>
 
+    
     <div class="submit-button">
       <button type="submit">Create</button>
     </div>

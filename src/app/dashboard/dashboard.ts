@@ -4,16 +4,12 @@ import { RouterModule } from '@angular/router';
 import { UserDataService } from '../services/user-data';
 import { Router } from '@angular/router';
 
-
-
 @Component({
   selector: 'app-dashboard',
   standalone: true,
   imports: [
     CommonModule,
     RouterModule,
-    
-    
   ],
   templateUrl: './dashboard.html',
   styleUrls: ['./dashboard.css']

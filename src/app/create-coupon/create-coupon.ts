@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
-import { Location } from '@angular/common';
+import { Router } from '@angular/router';
+import { CouponDataService } from '../services/coupon';
+import { ToastrService } from 'ngx-toastr'; 
 
 @Component({
   selector: 'app-create-coupon',
@@ -11,7 +13,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./create-coupon.css']
 })
 export class CreateCouponComponent {
-  constructor(private location: Location) {} 
+
   couponData = {
     couponType: '',
     mobileNumber: '',
@@ -24,24 +26,31 @@ export class CreateCouponComponent {
     description: '',
     startDate: '',
     endDate: '',
-    status: true
+    status: 'Active'
   };
+constructor(private router: Router,
+  private toastr: ToastrService,
+   private couponService: CouponDataService
+) {}
 
-  allowOnlyDigits(event: any): void {
+  
+  allowOnlyDigits(event: any) {
     const input = event.target as HTMLInputElement;
     input.value = input.value.replace(/[^0-9]/g, '');
     this.couponData.mobileNumber = input.value;
   }
-
-  submitForm(form: NgForm): void {
+  submitForm(form: NgForm) {
     if (form.valid) {
-      console.log('Coupon Data:', this.couponData);
-      alert('🎉 Hey! Your coupon has been created successfully.');
-    } else {
-      alert('😅 Not so fast! Fill in all the blanks before creating your coupon.');
-    }
+      this.couponService.addCoupon({ ...this.couponData });
+this.toastr.success('Coupon Created Successfully🥰')
+      form.resetForm();  
+       this.router.navigate(['/coupon-list']);
+    }else
+this.toastr.error('please fill all fields😒')
+return;
+
   }
-  goBack(): void {
-    this.location.back(); 
+  goBack() {
+    this.router.navigate(['/coupon-list']); 
   }
 }

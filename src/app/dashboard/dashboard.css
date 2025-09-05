@@ -49,10 +49,7 @@ html, body {
   padding-left: 0px;
 
 }
-
-
 .dashboard-container {
-    
   display: flex;
   height: 100vh;
   width: 100%;
@@ -109,12 +106,12 @@ html, body {
 
 .sidebar-btn:hover {
   background-color: #d0e4ff;
-  color:aqua;
+  color:#00b4d8;
   transform: scale(1.02);
 }
 
 .sidebar-btn.active {
-  background-color:rgb(230, 137, 152);
+  background-color:#00b4d8;
   color: #fff;
   box-shadow:#76a682;
   

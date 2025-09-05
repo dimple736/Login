@@ -1,10 +1,4 @@
-// app.routes.ts
 import { Routes } from '@angular/router';
-import { LoginComponent } from './login/login'; 
-import { DashboardComponent } from './dashboard/dashboard';
-import { UserListComponent } from './user-list/user-list';
-import { CreateUserComponent } from './create-user/create-user';
-import { CreateCouponComponent } from './create-coupon/create-coupon';
 
 export const routes: Routes = [
   {
@@ -14,11 +8,11 @@ export const routes: Routes = [
   },
   {
     path: 'login',
-    loadComponent: () => import('./login/login').then(m => LoginComponent)
+    loadComponent: () => import('./login/login').then(m => m.LoginComponent)
   },
   {
     path: 'dashboard',
-    loadComponent: () => import('./dashboard/dashboard').then(m => DashboardComponent),
+    loadComponent: () => import('./dashboard/dashboard').then(m => m.DashboardComponent),
     children: [
       {
         path: '',
@@ -27,16 +21,27 @@ export const routes: Routes = [
       },
       {
         path: 'userlist',
-        loadComponent: () => import('./user-list/user-list').then(m => UserListComponent)
+        loadComponent: () => import('./user-list/user-list').then(m => m.UserListComponent)
       },
       {
         path: 'createuser',
-        loadComponent: () => import('./create-user/create-user').then(m => CreateUserComponent)
+        loadComponent: () => import('./create-user/create-user').then(m => m.CreateUserComponent)
       },
       {
-      path: 'create-coupon',
-      loadComponent: () => import('./create-coupon/create-coupon').then(m => CreateCouponComponent)
-      }
-    ]
+        path: 'create-coupon',
+        loadComponent: () => import('./create-coupon/create-coupon').then(m => m.CreateCouponComponent)
+      },
+      {
+        path: 'coupon-list',  
+        loadComponent: () => import('./coupon-list/coupon-list').then(m => m.CouponListComponent)
+      },
+      {
+        path: 'video-list',  
+        loadComponent: () => import('./video-list/video-list').then(m => m.VideoListComponent)
+      },
+       {
+        path: 'video-play/:id',   
+        loadComponent: () => import('./video-play/video-play').then(m => m.VideoPlayComponent)
+   } ]
   }
 ];

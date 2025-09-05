@@ -63,7 +63,7 @@ thead {
 
 thead tr,
 thead th {
-  background-color: aquamarine; 
+  background-color: #00b4d8; 
   color: white !important;              
   padding: 14px 16px;
   font-weight: bold;
@@ -72,7 +72,7 @@ thead th {
 }
 
 thead th:hover {
-  background-color: aquamarine;
+  background-color: #00b4d8;
   color: white ;
   cursor: default;
 }
@@ -117,4 +117,91 @@ td {
 button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+/* Background overlay */
+.custom-modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;  
+  padding-top: 80px;        
+  z-index: 1050;
+}
+
+/* Modal box */
+.modal-dialog {
+  width: 450px;
+  max-width: 90%;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  overflow: hidden;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Header */
+.modal-header {
+  background:#00b4d8;
+  color: #fff;
+  padding: 12px 16px;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close {
+  cursor: pointer;
+  font-size: 22px;
+}
+
+/* Body */
+.modal-body {
+  padding: 10px;
+}
+.modal-body label {
+  display: block;
+  margin: 6px 0 2px;
+}
+.modal-body input {
+  width: 100%;
+  padding: 6px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* Footer */
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.modal-footer button {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-footer button:first-child {
+  background: #28a745;
+  color: white;
+}
+.modal-footer button:last-child {
+  background: #6c757d;
+  color: white;
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-30px); }
+  to   { opacity: 1; transform: translateY(0); }
 }

@@ -1,0 +1,31 @@
+
+.video-page {
+  display: flex;
+  justify-content: center;   /* horizontal center */
+  align-items: center;       /* vertical center */
+  height: 100vh;             /* full viewport height */
+}
+
+.video-box {
+  text-align: center;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+h2{
+    color:blueviolet;
+    font-family: cursive;
+    font-style: italic;
+}
+.url-box {
+  background:rgb(219, 166, 219);
+  padding: 10px 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #333;
+  word-break: break-all; 
+}

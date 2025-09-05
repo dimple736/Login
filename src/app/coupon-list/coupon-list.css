@@ -1,0 +1,19 @@
+.active {
+  color: green;
+  font-weight: bold;
+}
+.inactive {
+  color: red;
+  font-weight: bold;
+}
+.overall{
+    font-family: cursive;
+    font-weight: lighter;
+    font-size: small;
+}
+
+.table thead.header th {
+  background: #00b4d8 !important;
+  color: #fff !important;
+}
+

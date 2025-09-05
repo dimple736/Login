@@ -17,7 +17,7 @@
           <option value="+91">+91</option>
           <option value="+1">+1</option>
         </select>
-        <input type="text" [(ngModel)]="mobileNumber" placeholder="XXXX-XXX-XXX" maxlength="10" (input)="allowOnlyDigits($event)"/>
+        <input type="text" [(ngModel)]="mobileNumber" placeholder="XXXX-XXX-XXX" maxlength="10" (input)="allowOnlyDigits($event)"  (keyup.enter)="sendOtp()"/>
       </div>
       <button class="login-button" (click)="sendOtp()">Send OTP</button>
 

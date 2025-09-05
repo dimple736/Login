@@ -1,0 +1,115 @@
+<div class="overall">
+<div class="search-bar mb-3">
+  <input 
+    type="text" 
+    [(ngModel)]="searchTerm" 
+    placeholder="Search by coupon code..." 
+    class="form-control"
+  />
+</div>
+<div class="card shadow-sm">
+  <div class="card-body p-0">
+    <table class="table table-hover mb-0">
+      <thead class="header">
+        <tr>
+          <th>#</th>
+          <th>Code</th>
+          <th>Coupon Type</th>
+          <th>User Name</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Status</th>
+          <th>Rating</th>
+          <th>Mobile Number</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let coupon of filteredCoupons | paginate: { itemsPerPage: 5, currentPage: page }; let i = index">
+          <td>{{ (page - 1) * 5 + i + 1 }}</td>
+          <td>{{ coupon.code }}</td>
+          <td>{{ coupon.couponType }}</td>
+          <td>{{ coupon.userName }}</td>
+          <td>{{ coupon.startDate }}</td>
+          <td>{{ coupon.endDate }}</td>
+          <td>
+            <span [class.active]="coupon.status === 'Active'" [class.inactive]="coupon.status !== 'Active'">
+              {{ coupon.status }}
+            </span>
+          </td>
+          <td>{{ coupon.rating }}</td>
+          <td>{{ coupon.mobileNumber }}</td>
+
+          <td>
+            <button class="btn btn-sm " (click)="openEdit(coupon)">✏️ </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<pagination-controls 
+  (pageChange)="page = $event"
+  previousLabel="Prev"
+  nextLabel="Next">
+</pagination-controls>
+
+<div *ngIf="editedCoupon" class="edit-form card mt-4 p-3 shadow-sm">
+  <h4>Edit Coupon</h4>
+  <form>
+    <div class="mb-2">
+      <label>Coupon Code:</label>
+      <input [(ngModel)]="editedCoupon.code" name="code" class="form-control" />
+    </div>
+
+    <div class="mb-2">
+      <label>Coupon Type:</label>
+      <input [(ngModel)]="editedCoupon.couponType" name="couponType" class="form-control" />
+    </div>
+
+    <div class="mb-2">
+      <label>User Name:</label>
+      <input [(ngModel)]="editedCoupon.userName" name="userName" class="form-control" />
+    </div>
+
+    <div class="mb-2">
+      <label>Start Date:</label>
+      <input [(ngModel)]="editedCoupon.startDate" name="startDate" type="date" class="form-control" />
+    </div>
+
+    <div class="mb-2">
+      <label>End Date:</label>
+      <input [(ngModel)]="editedCoupon.endDate" name="endDate" type="date" class="form-control" />
+    </div>
+
+    <div class="mb-2">
+      <label>Status:</label>
+      <select [(ngModel)]="editedCoupon.status" name="status" class="form-control">
+        <option value="Active">Active</option>
+        <option value="Expired">Expired</option>
+      </select>
+    </div>
+
+    <div class="mb-2">
+      <label>Rating:</label>
+      <input [(ngModel)]="editedCoupon.rating" name="rating" class="form-control" />
+    </div>
+
+    <div class="mb-2">
+      <label>Mobile Number:</label>
+      <input [(ngModel)]="editedCoupon.mobileNumber" name="mobileNumber" class="form-control" />
+    </div>
+
+    <div class="mb-2">
+      <label>Description:</label>
+      <textarea [(ngModel)]="editedCoupon.description" name="description" class="form-control"></textarea>
+    </div>
+
+    <div class="mt-3">
+      <button type="button" class="btn btn-success me-2" (click)="saveEdit()">Save</button>
+      <button type="button" class="btn btn-secondary" (click)="closeEdit()">Cancel</button>
+    </div>
+  </form>
+</div>
+</div>

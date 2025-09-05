@@ -1,0 +1,22 @@
+
+
+<div class="video-page">
+  <div class="video-box">
+    <h2>🎥 Playing Video</h2>
+   
+<div class="url-box">
+      Video URL: <a [href]="videoUrl" target="_blank">{{ videoUrl }}</a>
+    </div>
+
+    <iframe 
+      [src]="safeUrl"
+      width="800" 
+      height="360"
+      frameborder="0"
+      allow="autoplay; encrypted-media"
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
+
+
